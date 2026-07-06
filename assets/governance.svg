@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400">
+  <style>
+    text { font-family: monospace; font-size: 11px; fill: #e0e0e0; }
+    .title { font-size: 15px; font-weight: bold; fill: #ffffff; }
+    rect { rx: 6; ry: 6; }
+  </style>
+  <rect width="700" height="400" fill="#1a1a2e"/>
+  <text x="350" y="30" text-anchor="middle" class="title">Governance Model</text>
+
+  <!-- Governance Levels -->
+  <rect x="30" y="55" width="640" height="50" fill="#0f3460" stroke="#1a6bcf" stroke-width="1.5"/>
+  <text x="350" y="75" text-anchor="middle" font-size="12" font-weight="bold">Level 0: Global Policies</text>
+  <text x="350" y="93" text-anchor="middle" font-size="10">All agents, all workspaces — can only be overridden by Level 0</text>
+
+  <rect x="30" y="115" width="640" height="50" fill="#16213e" stroke="#0f3460" stroke-width="1.5"/>
+  <text x="350" y="135" text-anchor="middle" font-size="12" font-weight="bold">Level 1: Workspace Policies</text>
+  <text x="350" y="153" text-anchor="middle" font-size="10">Specific workspace — e.g. "BASELINE/ is read-only"</text>
+
+  <rect x="30" y="175" width="640" height="50" fill="#1a1a40" stroke="#0f3460" stroke-width="1.5"/>
+  <text x="350" y="195" text-anchor="middle" font-size="12" font-weight="bold">Level 2: Agent Policies</text>
+  <text x="350" y="213" text-anchor="middle" font-size="10">Specific agent — e.g. "agent-A may execute RISKY workflows"</text>
+
+  <rect x="30" y="235" width="640" height="50" fill="#1a1a2e" stroke="#0f3460" stroke-width="1.5"/>
+  <text x="350" y="255" text-anchor="middle" font-size="12" font-weight="bold">Level 3: Workflow Policies</text>
+  <text x="350" y="273" text-anchor="middle" font-size="10">Specific workflow — e.g. "aic-experiment@1.0 requires user confirmation"</text>
+
+  <!-- Key components -->
+  <rect x="50" y="310" width="180" height="70" fill="#16213e" stroke="#0f3460" stroke-width="1"/>
+  <text x="140" y="330" text-anchor="middle" font-size="11" font-weight="bold">Permission System</text>
+  <text x="140" y="348" text-anchor="middle" font-size="9">domain + actions</text>
+  <text x="140" y="363" text-anchor="middle" font-size="9">first-class objects</text>
+  <text x="195" y="373" font-size="8" fill="#888">Ch9 §9.4</text>
+
+  <rect x="260" y="310" width="180" height="70" fill="#16213e" stroke="#0f3460" stroke-width="1"/>
+  <text x="350" y="330" text-anchor="middle" font-size="11" font-weight="bold">Trust Levels</text>
+  <text x="350" y="348" text-anchor="middle" font-size="9">TRUSTED / CONDITIONAL</text>
+  <text x="350" y="363" text-anchor="middle" font-size="9">UNTRUSTED / UNKNOWN</text>
+  <text x="405" y="373" font-size="8" fill="#888">Ch9 §9.8</text>
+
+  <rect x="470" y="310" width="180" height="70" fill="#16213e" stroke="#0f3460" stroke-width="1"/>
+  <text x="560" y="330" text-anchor="middle" font-size="11" font-weight="bold">Execution Domains</text>
+  <text x="560" y="348" text-anchor="middle" font-size="9">LOCAL / REMOTE</text>
+  <text x="560" y="363" text-anchor="middle" font-size="9">EXTERNAL / GOVERNED</text>
+  <text x="615" y="373" font-size="8" fill="#888">Ch9 §9.8</text>
+</svg>
