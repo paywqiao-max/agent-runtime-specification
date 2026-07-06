@@ -8,5 +8,8 @@ version = "1.0.0"
 description = "ARS v1.0 Reference Implementation (Hermes)"
 requires-python = ">=3.11"
 
+[project.optional-dependencies]
+test = ["pytest"]
+
 [tool.setuptools.packages.find]
 include = ["hermes_core", "hermes_core.*"]
