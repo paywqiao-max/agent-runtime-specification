@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermes-core"
+version = "1.0.0"
+description = "ARS v1.0 Reference Implementation (Hermes)"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+include = ["hermes_core", "hermes_core.*"]
