@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 550" width="600" height="550">
+  <defs>
+    <style>
+      .spec { fill:#ddf4ff; stroke:#54aeff; stroke-width:2; rx:10; ry:10; }
+      .impl { fill:#e8f0fe; stroke:#5484e0; stroke-width:2; rx:8; ry:8; }
+      .agent { fill:#e6f6e6; stroke:#3fb950; stroke-width:2; rx:8; ry:8; }
+      .shared { fill:#fff8c5; stroke:#d4a72c; stroke-width:2; rx:8; ry:8; }
+      .arrow { fill:none; stroke:#8590a0; stroke-width:2; marker-end:url(#a); }
+      .label { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:11px; fill:#24292f; text-anchor:middle; }
+      .label-bold { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:12px; fill:#24292f; text-anchor:middle; font-weight:600; }
+    </style>
+    <marker id="a" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8590a0"/>
+    </marker>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#00000012"/>
+    </filter>
+  </defs>
+
+  <text x="300" y="20" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="14" font-weight="700" fill="#24292f" text-anchor="middle">ARS Ecosystem Architecture</text>
+
+  <!-- ARS Spec -->
+  <rect x="180" y="40" width="240" height="44" class="spec" filter="url(#shadow)"/>
+  <text x="300" y="62" class="label-bold">ARS Specification v1.0</text>
+  <text x="300" y="76" class="label">Contracts · Invariants · Verification · Governance</text>
+
+  <!-- Branch lines from spec -->
+  <path d="M 220 84 L 220 120 L 120 120 L 120 155" class="arrow"/>
+  <path d="M 300 84 L 300 155" class="arrow"/>
+  <path d="M 380 84 L 380 120 L 480 120 L 480 155" class="arrow"/>
+
+  <!-- Implementations -->
+  <rect x="50" y="155" width="140" height="40" class="impl" filter="url(#shadow)"/>
+  <text x="120" y="175" class="label-bold">Python Runtime</text>
+  <text x="120" y="189" class="label">hermes_core</text>
+
+  <rect x="230" y="155" width="140" height="40" class="impl" filter="url(#shadow)"/>
+  <text x="300" y="175" class="label-bold">Rust Runtime</text>
+  <text x="300" y="189" class="label">(prospective)</text>
+
+  <rect x="410" y="155" width="140" height="40" class="impl" filter="url(#shadow)"/>
+  <text x="480" y="175" class="label-bold">Go Runtime</text>
+  <text x="480" y="189" class="label">(prospective)</text>
+
+  <!-- Arrows to agents -->
+  <line x1="120" y1="195" x2="120" y2="240" class="arrow"/>
+  <line x1="300" y1="195" x2="300" y2="240" class="arrow"/>
+  <line x1="480" y1="195" x2="480" y2="240" class="arrow"/>
+
+  <!-- Agents -->
+  <rect x="50" y="240" width="140" height="40" class="agent" filter="url(#shadow)"/>
+  <text x="120" y="265" class="label">AI Agents</text>
+
+  <rect x="230" y="240" width="140" height="40" class="agent" filter="url(#shadow)"/>
+  <text x="300" y="265" class="label">AI Agents</text>
+
+  <rect x="410" y="240" width="140" height="40" class="agent" filter="url(#shadow)"/>
+  <text x="480" y="265" class="label">AI Agents</text>
+
+  <!-- Convergence -->
+  <path d="M 120 280 L 120 320 L 300 350" class="arrow"/>
+  <path d="M 300 280 L 300 350" class="arrow"/>
+  <path d="M 480 280 L 480 320 L 300 350" class="arrow"/>
+
+  <!-- Shared semantics -->
+  <rect x="150" y="350" width="300" height="44" class="shared" filter="url(#shadow)"/>
+  <text x="300" y="372" class="label-bold">Shared Runtime Semantics</text>
+  <text x="300" y="386" class="label">Cross-platform trust · Portable audit · Verifiable workflows</text>
+
+  <!-- Bottom note -->
+  <text x="300" y="440" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="9" fill="#656d76" text-anchor="middle">ARS standardizes runtime behaviour — NOT prompts, NOT models, NOT frameworks.</text>
+
+  <text x="300" y="465" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="9" fill="#656d76" text-anchor="middle">Any runtime implementing ARS contracts produces portable audit logs and verifiable workflows.</text>
+</svg>

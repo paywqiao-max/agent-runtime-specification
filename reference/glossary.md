@@ -6,11 +6,11 @@
 
 ### A
 
-**Action**: The atomic execution unit in Hermes. Each Action follows the Ch5 Execution Contract Template (Input → Preconditions → Execution → Evidence → Postconditions → Audit). Every Action produces an AuditRecord. (Ch5 §5.3)
+**Action**: The atomic execution unit in the ARS runtime. Each Action follows the Ch5 Execution Contract Template (Input → Preconditions → Execution → Evidence → Postconditions → Audit). Every Action produces an AuditRecord. (Ch5 §5.3)
 
 **Action Node**: A Workflow node type that binds to a Ch5 Action Contract. It is the basic execution unit within a Workflow DAG. (Ch7 §7.4.2)
 
-**AgentID**: An agent's unique identity within the Hermes system. Must be registered in Governance before execution. (Ch9 §9.7.1)
+**AgentID**: An agent's unique identity within the ARS system. Must be registered in Governance before execution. (Ch9 §9.7.1)
 
 **Agent Identity**: Registered agent metadata including agent_id, agent_type, workspace, capabilities, trust_level. (Ch9 §9.7.1)
 
@@ -28,7 +28,7 @@
 
 **Bootstrap**: The process of establishing a workspace from zero to operational research state. Includes Preparation (Phase A, read-only) and Deployment (Phase B, creating files and structures). (Ch1 §1.1–§1.2)
 
-**Bridge**: Platform adapter layer in the filesystem layout. Each Agent platform (Hermes, Codex) has a subdirectory under bridges/. (Ch3 §3.2)
+**Bridge**: Platform adapter layer in the filesystem layout. Each Agent platform has a subdirectory under bridges/. (Ch3 §3.2)
 
 ---
 
@@ -56,7 +56,7 @@
 
 ### D
 
-**DAG**: Directed Acyclic Graph — the structural foundation of Workflow Definitions. Hermes Workflows must be DAGs with explicit control flow. (Ch7 §7.3)
+**DAG**: Directed Acyclic Graph — the structural foundation of Workflow Definitions. ARS Workflows must be DAGs with explicit control flow. (Ch7 §7.3)
 
 **Determinism**: Classification of Action output stability: Deterministic / Conditionally Deterministic / Non-deterministic. Controls retry policy. (Ch5 §5.9)
 
@@ -120,7 +120,7 @@
 
 ### L
 
-**Layer**: Hermes is organized into 6 layers (L0: Research Kernel through L6: Infrastructure), plus 2 orthogonal components (Memory, Cron). Each layer may depend only on lower layers. (Ch2 §2.A)
+**Layer**: The ARS architecture is organized into 6 layers (L0: Research Kernel through L6: Infrastructure), plus 2 orthogonal components (Memory, Cron). Each layer may depend only on lower layers. (Ch2 §2.A)
 
 **Lifecycle**: Component state machine: Design → Bootstrap → Active → Deprecated → Archived. Some components also support Disabled and Destroyed. (Ch2 §2.C)
 
@@ -128,7 +128,7 @@
 
 ### M
 
-**Memory**: Hermes platform component for short persistent context (user preferences, environment facts). Has strict size limits. Not a source of truth. (Ch2, Orthogonal)
+**Memory**: ARS platform component for short persistent context (user preferences, environment facts). Has strict size limits. Not a source of truth. (Ch2, Orthogonal)
 
 **Meta-Governance**: Chapter 9 of the specification. Defines the control system over the execution universe: policies, permissions, gates, trust. (Ch9)
 

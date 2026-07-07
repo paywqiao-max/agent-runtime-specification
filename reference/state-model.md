@@ -30,7 +30,7 @@
 | Shared | Agent (proposes) + User (approves) | POLICIES.md, workflows.md, skills/, jobs.json |
 | Agent | Only Agent | experiment_db.json, repo_index.json, knowledge/kb/ |
 | System | Automatic | audit/, dryrun/, snapshots/ |
-| Bridge | Bridge adapter | bridges/hermes/, bridges/codex/ |
+| Bridge | Bridge adapter | bridges/python/, bridges/codex/ |
 
 ## Recovery Levels
 

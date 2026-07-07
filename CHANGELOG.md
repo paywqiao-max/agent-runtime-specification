@@ -14,4 +14,4 @@ Initial frozen specification. ARS v1.0 (Agent Runtime Specification) complete ac
 - Ch8: Verification & Security — Static analysis, safety classification
 - Ch9: Meta-Governance — Policy system, execution gating
 
-Reference implementation (Hermes): 2,428 lines of Python, 25 modules, verified against all core contracts.
+Reference implementation (Python): 2,428 lines of Python, 25 modules, verified against all core contracts.

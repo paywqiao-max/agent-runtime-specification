@@ -18,7 +18,7 @@ The reference implementation is a pure Python library (`hermes_core`) that imple
 ## Module Layout
 
 ```
-reference/hermes/
+implementations/python/
 ├── __init__.py              # Public API (exports all major classes)
 ├── core/                    # Ch1–2: Types, enums, exceptions
 │   ├── types.py             # All system data types
@@ -45,7 +45,7 @@ reference/hermes/
 ├── scheduler/               # Cron management
 │   └── cron.py              # Job scheduler
 └── bridges/                 # Platform adapters
-    └── hermes/              # Hermes bridge
+    └── python/              # Python bridge
 ```
 
 ---

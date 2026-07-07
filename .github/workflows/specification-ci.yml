@@ -22,7 +22,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Install reference implementation
-      run: cd reference/hermes && pip install -e ".[test]"
+      run: cd implementations/python && pip install -e ".[test]"
 
     - name: Run compliance tests
       run: cd tests && python -m pytest -v --tb=short

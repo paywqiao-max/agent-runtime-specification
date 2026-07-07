@@ -11,7 +11,7 @@ from hermes_core.core.types import WorkflowID, NodeType
 # Create a workflow definition
 wf = WorkflowDefinition(
     workflow_id=WorkflowID(name="hello-workflow", version="1.0"),
-    name="Hello Hermes",
+    name="Hello ARS",
 )
 
 # Add a single Terminal Node

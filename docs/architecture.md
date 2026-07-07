@@ -75,5 +75,5 @@ infrastructure/ →  audit trail + snapshots
 
 ## Commitment to Portability
 
-The specification is platform-independent. The reference implementation (Hermes) is pure Python.
-Any runtime (Hermes, Codex CLI, etc.) can implement the contracts.
+The specification is platform-independent. The Python reference implementation is pure Python.
+Any runtime can implement the contracts.

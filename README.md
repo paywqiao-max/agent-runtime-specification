@@ -86,7 +86,7 @@ ARS is designed to be:
         │                      │                      │
         ▼                      ▼                      ▼
 
- Hermes Runtime         Rust Runtime         Go Runtime
+ Python Runtime         Rust Runtime         Go Runtime
  (Reference)            (Future)             (Future)
 
         ▼                      ▼                      ▼
@@ -94,11 +94,7 @@ ARS is designed to be:
       AI Agents           AI Agents           AI Agents
 ```
 
-**ARS is the specification.**
-
-Hermes is the official Python reference implementation.
-
-Any runtime written in any language may implement ARS and verify conformance through the ARS Compliance Test Suite.
+**ARS is the specification.** The **Python reference implementation** is one of many possible runtimes.
 
 ---
 
@@ -218,11 +214,12 @@ Every contract promise terminates at a contract-guaranteed artifact.
 ARS/
 ├── spec/                  # Frozen specification
 │   └── v1.0/
-├── docs/                  # Documentation
-├── reference/             # Reference material
-│   └── hermes/            # Python reference implementation
-├── tests/                 # Compliance test suite
-├── examples/              # Examples
+├── docs/                  # Documentation (guides, conformance, ecosystem)
+├── implementations/       # Conforming implementations
+│   └── python/            # Python reference implementation (hermes_core)
+├── reference/             # Reference indexes (glossary, invariants, contracts)
+├── tests/                 # Implementation-independent compliance test suite
+├── examples/              # Runnable examples by category
 ├── implementation/        # Implementation documentation
 ├── assets/                # Diagrams
 ├── scripts/               # Utility scripts
@@ -325,19 +322,45 @@ spec/v1.0/
 
 ---
 
-# Reference Implementation
+# Implementations
 
-The official reference implementation is **Hermes**.
+ARS is a **specification**, not a product. Any runtime can implement ARS by conforming to its contracts, invariants, verification rules, audit model, and governance model.
 
-Current implementation:
+```
+                ARS Specification v1.0
+                        │
+        ┌───────────────┼───────────────┐
+        │               │               │
+   Python Impl      Rust Impl        Go Impl
+   (2,428 lines)   (prospective)   (prospective)
+        │               │               │
+        ▼               ▼               ▼
+     AI Agent        AI Agent        AI Agent
+```
 
-- Python 3.11+
-- 25 modules
-- 2,428 lines
-- Full Ch1–Ch9 coverage
-- Verified against ARS Compliance Suite
+### Python Reference Implementation
 
-Future implementations in Rust, Go, Java, C#, or other languages are welcome.
+The repository currently includes **one** conforming implementation:
+
+| Property | Value |
+|----------|-------|
+| Language | Python 3.11+ |
+| Modules  | 25 (hermes_core) |
+| Lines    | 2,428 |
+| Coverage | Full Ch1–Ch9 |
+| Status   | ✅ Verified against ARS Compliance Suite |
+| Location | `implementations/python/` |
+
+Install and verify:
+
+```bash
+cd implementations/python
+pip install -e .
+cd tests
+python -m pytest -v
+```
+
+Future implementations in Rust, Go, Java, TypeScript, or other languages are welcome and should be added under `implementations/<language>/`.
 
 ---
 
@@ -363,10 +386,10 @@ python -m pytest -v
 
 # Development
 
-Install the Hermes reference implementation:
+Install the Python reference implementation:
 
 ```bash
-cd reference/hermes
+cd implementations/python
 pip install -e .
 ```
 
@@ -428,6 +451,6 @@ See [LICENSE](LICENSE).
   title  = {Agent Runtime Specification (ARS) v1.0},
   author = {ARS Contributors},
   year   = {2026},
-  note   = {Official Python Reference Implementation: Hermes}
+  note   = {Python Reference Implementation}
 }
 ```

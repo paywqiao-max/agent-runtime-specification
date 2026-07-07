@@ -1,6 +1,6 @@
 # Quick Start
 
-> Get started with ARS in 5 minutes (using the Hermes Reference Implementation).
+> Get started with ARS in 5 minutes (using the Python Reference Implementation).
 
 ---
 
@@ -13,8 +13,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/hermes.git
-cd hermes
+git clone https://github.com/paywqiao-max/agent-runtime-specification.git
+cd agent-runtime-specification
 
 # Install the reference implementation
 cd python
@@ -54,7 +54,7 @@ wf.add_node(NodeDefinition(
 # 4. Execute
 engine = WorkflowEngine(
     audit_log=log, state_dir=Path("./state"),
-    workspace="/tmp/hermes", agent_id="agent"
+    workspace="/tmp/ars-workspace", agent_id="agent"
 )
 engine.gate = gate
 result = engine.execute(wf, inputs={}, dry_run=True)

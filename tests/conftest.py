@@ -7,7 +7,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 # Add hermes_core to path
-sys.path.insert(0, str(Path(__file__).parent.parent / "reference" / "hermes"))
+sys.path.insert(0, str(Path(__file__).parent.parent / "implementations" / "python"))
 
 import pytest
 from hermes_core.core.types import (

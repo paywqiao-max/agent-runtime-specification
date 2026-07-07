@@ -10,12 +10,12 @@ Instead, send a description to the project maintainers. We will acknowledge rece
 
 This security policy covers:
 - The ARS Bootstrap Specification (Ch1–Ch9)
-- The reference implementation (`reference/hermes/`)
+- The reference implementation (`implementations/python/`)
 - Documented contracts and invariants
 
 ## Out of Scope
 
 Vulnerabilities in:
-- Downstream projects using Hermes
+- Downstream projects using the Python reference implementation
 - Third-party dependencies
-- Agent platforms (runtimes (Hermes, Codex CLI), etc.)
+- Agent platforms (runtimes (Python Reference Implementation, Codex CLI), etc.)

@@ -12,7 +12,7 @@ docs/         → Reading guides, architecture, quick-start
 reference/    → Reference indexes (invariants, contracts, policies, etc.)
 examples/     → Runnable examples by category
 implementation/ → Implementation documentation
-reference/hermes/       → Reference implementation (hermes_core package)
+implementations/python/       → Reference implementation (hermes_core package)
 tests/        → Test suite
 scripts/      → Utility scripts
 assets/       → Diagrams
@@ -32,7 +32,7 @@ If you believe a change is necessary, open a Specification Issue.
 
 ## Working with the Implementation
 
-The reference implementation is in `reference/hermes/`. Changes are welcome as long as they:
+The reference implementation is in `implementations/python/`. Changes are welcome as long as they:
 - Do not modify frozen specification content
 - Are traceable to a specific chapter and section
 - Maintain backward compatibility
