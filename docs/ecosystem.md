@@ -105,6 +105,35 @@ Specifically, ARS defines:
 
 ---
 
+## Long-Term Vision
+
+```
+ARS Specification
+       ↓
+Independent Implementations
+       ↓
+Independent AI Agents
+       ↓
+Shared Runtime Semantics
+       ↓
+Portable Workflows
+       ↓
+Comparable Runtimes
+       ↓
+Verifiable Execution
+```
+
+The long-term vision is an ecosystem where:
+
+- **Workflows are portable**: A workflow defined for one ARS-conformant runtime runs on another.
+- **Runtimes are comparable**: The compliance suite provides objective pass/fail comparison across implementations.
+- **Execution is verifiable**: Audit logs produced by any runtime can be independently verified against ARS contracts.
+- **Governance is consistent**: The same policy set applies regardless of which runtime or language is used.
+
+This turns agent runtime selection into a technical choice rather than a lock-in decision.
+
+---
+
 ## Contributing
 
 To propose changes to ARS:

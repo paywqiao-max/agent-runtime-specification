@@ -10,6 +10,8 @@ Conformance to the Agent Runtime Specification (ARS) means that a runtime satisf
 
 Conformance is implementation-independent. Any runtime — Python, Rust, Go, TypeScript, or any other language — that satisfies ARS requirements is a conforming ARS runtime.
 
+**Multiple implementations can conform simultaneously.** Conformance is not exclusive. A Python runtime, a Rust runtime, and a Go runtime can all be ARS-conformant at the same time. There is no single "official" implementation.
+
 ---
 
 ## Conformance Dimensions

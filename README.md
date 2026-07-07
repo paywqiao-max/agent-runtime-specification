@@ -40,34 +40,61 @@ Rather than standardizing prompts, models, or frameworks, ARS standardizes **run
 
 ---
 
-# What ARS Is NOT
+# Non-Goals
 
-ARS is **not**:
+ARS explicitly does **not** define:
 
-- ❌ An AI agent framework
-- ❌ A workflow engine
-- ❌ A prompt format
-- ❌ An orchestration platform
-- ❌ AGENTS.md
-- ❌ A model API
+| Domain | Why |
+|--------|-----|
+| **Prompt engineering** | Prompt design is application-specific. ARS standardizes the runtime, not the interaction format. |
+| **LLM APIs** | Model APIs belong to model providers, not runtime contracts. ARS works with any model. |
+| **Memory architecture** | Memory systems are implementation-specific. ARS defines how execution is recorded, not how agents remember. |
+| **User interfaces** | CLI, GUI, API — all are compatible. ARS governs what happens during execution, not how users interact. |
+| **Planning algorithms** | Task decomposition, reflection, and planning belong to agent frameworks. ARS standardizes execution, not reasoning. |
+| **Model providers** | OpenAI, Anthropic, local models — ARS is model-agnostic. |
+| **Framework implementations** | LangGraph, AutoGen, Claude Code, etc. can all build on ARS-conformant runtimes. ARS does not replace them. |
 
-ARS defines the runtime contracts that those systems may implement.
+These capabilities belong to **higher layers** (applications, frameworks, user interfaces). ARS provides the runtime foundation that they all share.
+
+---
+
+# Where ARS Fits
+
+![Where ARS Fits](assets/where-ars-fits.svg)
+
+*ARS sits between applications and infrastructure: frameworks and agents build on conforming runtimes, runtimes implement ARS contracts.*
 
 ---
 
 # Design Goals
 
-ARS is designed to be:
+ARS is designed with the following principles:
 
-- Deterministic
-- Auditable
-- Recoverable
-- Verifiable
-- Platform-independent
-- Language-neutral
-- Implementation-independent
-- Portable
-- Extensible
+| Goal | Description |
+|------|-------------|
+| **Deterministic** | Identical inputs produce identical execution traces. Workflow DAGs guarantee static topology. |
+| **Auditable** | Every execution produces an immutable, append-only audit record. Full traceability from input to outcome. |
+| **Verifiable** | Workflows are statically analyzed before execution. 17 verification rules catch errors before they run. |
+| **Recoverable** | Crash recovery from audit trail. Decision tree selects rollback, compensation, or replay. |
+| **Minimal** | 9 chapters. 47 invariants. 17 verification rules. Nothing extraneous. |
+| **Implementation-independent** | Specified abstractly. Any language, any framework, any platform can implement. |
+| **Portable** | Workflows and audit logs work across runtimes. No vendor lock-in. |
+| **Contract-driven** | Every runtime behavior is governed by a formal contract with pre/post conditions. |
+
+---
+
+# Who Is ARS For?
+
+| Audience | Why ARS Matters |
+|----------|-----------------|
+| **Runtime developers** | Implement ARS contracts to produce a verifiable, compliant agent runtime. Start from a proven spec instead of designing from scratch. |
+| **Framework authors** | Build your framework on ARS-conformant runtimes. Gain portable audit, verifiable workflows, and cross-runtime compatibility. |
+| **Enterprise AI infrastructure teams** | Standardize agent runtime behaviour across teams. Enforce audit, governance, and recovery policies uniformly. |
+| **Research projects** | Experiment with agent runtimes while maintaining compliance with a common specification. Compare implementations objectively. |
+| **Agent platform developers** | Deploy agents on any ARS-conformant runtime. Audit logs and workflows are portable across platforms. |
+| **System architects** | Design agent systems with clear runtime boundaries. Separate execution semantics from application logic. |
+
+ARS is **not** intended for end users interacting with AI chatbots. It is a specification for the developers who build the systems underneath.
 
 ---
 
@@ -196,7 +223,7 @@ Every contract promise terminates at a contract-guaranteed artifact.
 
 ---
 
-## Diagrams
+# Diagrams
 
 | Diagram | Description |
 |---------|-------------|
@@ -405,6 +432,42 @@ Verify specification artifacts:
 ```bash
 python scripts/verify-spec.py
 ```
+
+---
+
+# FAQ
+
+### Why not another framework?
+
+ARS is **not** a framework — it is a **specification**. Frameworks like LangGraph, AutoGen, and Claude Code can all build on ARS-conformant runtimes. ARS standardizes what they share (execution, audit, verification, governance) without dictating how they work.
+
+### How is ARS different from AGENTS.md?
+
+AGENTS.md is a convention for defining agent behaviour through natural-language instructions. ARS is a formal runtime specification with typed contracts, verifiable invariants, and an implementation-independent test suite. AGENTS.md describes *what* an agent should do; ARS defines *how* execution happens.
+
+### How is ARS different from MCP?
+
+MCP (Model Context Protocol) standardizes how models connect to external tools and data sources. ARS standardizes how runtimes execute, audit, recover, and govern — the internal runtime semantics. MCP is about model ↔ tool communication; ARS is about runtime ↔ execution contracts. They are complementary.
+
+### Can LangGraph implement ARS?
+
+Yes. LangGraph can build a conforming runtime on top of its graph execution model by implementing ARS contracts for audit, recovery, verification, and governance.
+
+### Can AutoGen implement ARS?
+
+Yes. AutoGen's multi-agent orchestration can be wrapped in an ARS-conformant runtime, gaining portable audit traces and verifiable execution semantics.
+
+### Can my own agent conform to ARS?
+
+Yes. Any agent framework can implement ARS contracts. The specification is language-neutral and implementation-independent. The [Compliance Suite](#compliance-suite) provides a clear pass/fail test.
+
+### Does ARS require Python?
+
+No. The specification is language-neutral. The included Python reference implementation (`implementations/python/`) is one example. Rust, Go, TypeScript, and other implementations are welcome.
+
+### Does ARS require Hermes?
+
+No. Hermes is the name of the Python reference implementation's internal package (`hermes_core`). ARS is implementation-independent. The name "Hermes" appears only as an implementation detail, not as a project identity.
 
 ---
 

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 620" width="600" height="620">
+  <defs>
+    <style>
+      .top-app { fill:#e6f6e6; stroke:#3fb950; stroke-width:2; rx:8; ry:8; }
+      .mid-ars { fill:#ddf4ff; stroke:#54aeff; stroke-width:2; rx:10; ry:10; }
+      .mid-runtime { fill:#e8f0fe; stroke:#5484e0; stroke-width:2; rx:8; ry:8; }
+      .bot-os { fill:#f6f8fa; stroke:#656d76; stroke-width:2; rx:8; ry:8; }
+      .arrow { fill:none; stroke:#8590a0; stroke-width:2; marker-end:url(#a); }
+      .label { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:11px; fill:#24292f; text-anchor:middle; }
+      .label-sm { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:9px; fill:#656d76; text-anchor:middle; }
+      .label-bold { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:13px; fill:#24292f; text-anchor:middle; font-weight:600; }
+    </style>
+    <marker id="a" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8590a0"/>
+    </marker>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#00000012"/>
+    </filter>
+  </defs>
+
+  <text x="300" y="20" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="15" font-weight="700" fill="#24292f" text-anchor="middle">Where ARS Fits in the Ecosystem</text>
+
+  <!-- Layer 1: Applications -->
+  <rect x="100" y="45" width="400" height="36" rx="6" class="top-app" filter="url(#shadow)"/>
+  <text x="300" y="68" class="label-bold">Applications &amp; Agent Frameworks</text>
+
+  <text x="300" y="98" class="label-sm" fill="#3fb950">Claude Code · OpenHands · AutoGen · LangGraph · Cursor · Custom Agents</text>
+
+  <line x1="300" y1="108" x2="300" y2="130" class="arrow"/>
+
+  <!-- Layer 2: ARS -->
+  <rect x="120" y="130" width="360" height="44" class="mid-ars" filter="url(#shadow)"/>
+  <text x="300" y="152" class="label-bold" fill="#0969da">Agent Runtime Specification (ARS)</text>
+  <text x="300" y="166" class="label-sm">Contracts · Invariants · Audit · Workflow · Verification · Governance</text>
+
+  <line x1="300" y1="174" x2="300" y2="196" class="arrow"/>
+
+  <!-- Layer 3: Runtimes -->
+  <text x="300" y="212" class="label-sm">Conforming Runtimes (implementation-independent)</text>
+
+  <rect x="40" y="215" width="150" height="36" class="mid-runtime" filter="url(#shadow)"/>
+  <text x="115" y="238" class="label">Python Runtime</text>
+
+  <rect x="225" y="215" width="150" height="36" class="mid-runtime" filter="url(#shadow)"/>
+  <text x="300" y="238" class="label">Rust Runtime</text>
+
+  <rect x="410" y="215" width="150" height="36" class="mid-runtime" filter="url(#shadow)"/>
+  <text x="485" y="238" class="label">Go Runtime</text>
+
+  <text x="115" y="260" class="label-sm">hermes_core</text>
+  <text x="300" y="260" class="label-sm">(prospective)</text>
+  <text x="485" y="260" class="label-sm">(prospective)</text>
+
+  <!-- More runtimes hint -->
+  <line x1="485" y1="233" x2="540" y2="233" class="arrow"/>
+  <rect x="540" y="215" width="40" height="36" class="mid-runtime" filter="url(#shadow)"/>
+  <text x="560" y="238" class="label">…</text>
+
+  <line x1="115" y1="268" x2="115" y2="290" class="arrow"/>
+  <line x1="300" y1="268" x2="300" y2="290" class="arrow"/>
+  <line x1="485" y1="268" x2="485" y2="290" class="arrow"/>
+
+  <!-- Layer 4: OS/Infra -->
+  <rect x="100" y="290" width="400" height="36" class="bot-os" filter="url(#shadow)"/>
+  <text x="300" y="313" class="label-bold">Operating System / Infrastructure</text>
+  <text x="300" y="326" class="label-sm">Linux · macOS · Windows · Containers · Cloud</text>
+
+  <!-- Bottom note -->
+  <text x="300" y="380" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="9" fill="#656d76" text-anchor="middle">Applications consume ARS via conforming runtimes — ARS contracts are runtime-level, not application-level.</text>
+  <text x="300" y="395" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="9" fill="#656d76" text-anchor="middle">Any framework (LangGraph, AutoGen, Claude Code, etc.) can build on any ARS-conformant runtime.</text>
+
+  <!-- Side annotation -->
+  <line x1="40" y1="63" x2="25" y2="63" stroke="#8590a0" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="20" y="60" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="9" fill="#656d76" text-anchor="end">Higher layers</text>
+  <line x1="40" y1="308" x2="25" y2="308" stroke="#8590a0" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="20" y="305" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="9" fill="#656d76" text-anchor="end">Lower layers</text>
+
+  <!-- Arrow annotation -->
+  <text x="18" y="185" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="9" fill="#8590a0" text-anchor="end">conforms to</text>
+</svg>
