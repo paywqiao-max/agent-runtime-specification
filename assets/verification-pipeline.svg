@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="600" height="500">
+  <defs>
+    <style>
+      .wf { fill:#e8f0fe; stroke:#5484e0; stroke-width:2; rx:8; ry:8; }
+      .stage { fill:#f6f8fa; stroke:#d0d7de; stroke-width:2; rx:8; ry:8; }
+      .active { fill:#ddf4ff; stroke:#54aeff; stroke-width:2; rx:8; ry:8; }
+      .gate { fill:#fff8c5; stroke:#d4a72c; stroke-width:2; rx:8; ry:8; }
+      .exec { fill:#e6f6e6; stroke:#3fb950; stroke-width:2; rx:8; ry:8; }
+      .arrow { fill:none; stroke:#8590a0; stroke-width:2; marker-end:url(#a); }
+      .label { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:12px; fill:#24292f; text-anchor:middle; }
+      .tag { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:9px; fill:#656d76; }
+    </style>
+    <marker id="a" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8590a0"/>
+    </marker>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#00000012"/>
+    </filter>
+  </defs>
+
+  <text x="300" y="25" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="16" font-weight="700" fill="#24292f" text-anchor="middle">Verification Pipeline</text>
+
+  <!-- Workflow Definition -->
+  <rect x="220" y="50" width="160" height="40" class="wf" filter="url(#shadow)"/>
+  <text x="300" y="75" class="label">Workflow Definition</text>
+  <line x1="300" y1="90" x2="300" y2="115" class="arrow"/>
+
+  <!-- Static Analysis -->
+  <rect x="200" y="115" width="200" height="40" class="active" filter="url(#shadow)"/>
+  <text x="300" y="140" class="label">Static Analysis (S1–S17)</text>
+  <line x1="300" y1="155" x2="300" y2="180" class="arrow"/>
+
+  <!-- Contract Validation -->
+  <rect x="200" y="180" width="200" height="40" class="stage" filter="url(#shadow)"/>
+  <text x="300" y="205" class="label">Contract Validation</text>
+  <line x1="300" y1="220" x2="300" y2="245" class="arrow"/>
+
+  <!-- Safety Classification -->
+  <rect x="200" y="245" width="200" height="40" class="stage" filter="url(#shadow)"/>
+  <text x="300" y="270" class="label">Safety Classification</text>
+  <line x1="300" y1="285" x2="300" y2="310" class="arrow"/>
+
+  <!-- Governance Gate -->
+  <rect x="200" y="310" width="200" height="40" class="gate" filter="url(#shadow)"/>
+  <text x="300" y="335" class="label">Governance Gate</text>
+  <line x1="300" y1="350" x2="300" y2="375" class="arrow"/>
+
+  <!-- Execution -->
+  <rect x="230" y="375" width="140" height="40" class="exec" filter="url(#shadow)"/>
+  <text x="300" y="400" class="label">Execution</text>
+
+  <!-- Right-side annotations -->
+  <text x="440" y="133" class="tag" font-weight="600">Rules S1–S17</text>
+  <text x="440" y="147" class="tag">Unreachable check</text>
+  <text x="440" y="160" class="tag">Type safety, cycles</text>
+
+  <text x="440" y="218" class="tag" font-weight="600">Pre/post conditions</text>
+  <text x="440" y="232" class="tag">Invariant checks</text>
+
+  <text x="440" y="278" class="tag" font-weight="600">SAFE · CONDITIONAL</text>
+  <text x="440" y="292" class="tag">UNSAFE · IRREVERSIBLE</text>
+
+  <text x="440" y="343" class="tag" font-weight="600">Permission · Policy</text>
+  <text x="440" y="357" class="tag">Agent identity</text>
+
+  <!-- Bottom note -->
+  <text x="300" y="455" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="10" fill="#656d76" text-anchor="middle">Each stage must pass before proceeding. Failures produce structured error codes.</text>
+</svg>

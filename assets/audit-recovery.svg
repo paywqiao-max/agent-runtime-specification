@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 620" width="600" height="620">
+  <defs>
+    <style>
+      .exec { fill:#e8f0fe; stroke:#5484e0; stroke-width:2; rx:8; ry:8; }
+      .audit { fill:#ddf4ff; stroke:#54aeff; stroke-width:2; rx:8; ry:8; }
+      .crash { fill:#ffe0e0; stroke:#cf222e; stroke-width:2; rx:8; ry:8; }
+      .recovery { fill:#fff8c5; stroke:#d4a72c; stroke-width:2; rx:8; ry:8; }
+      .decision { fill:#fff8c5; stroke:#d4a72c; stroke-width:2; rx:4; ry:4; }
+      .outcome { fill:#e6f6e6; stroke:#3fb950; stroke-width:2; rx:8; ry:8; }
+      .rollback { fill:#ffe0e0; stroke:#cf222e; stroke-width:2; rx:8; ry:8; }
+      .comp { fill:#e6f6e6; stroke:#3fb950; stroke-width:2; rx:8; ry:8; }
+      .replay { fill:#e8f0fe; stroke:#5484e0; stroke-width:2; rx:8; ry:8; }
+      .arrow { fill:none; stroke:#8590a0; stroke-width:2; marker-end:url(#a); }
+      .arrow-r { fill:none; stroke:#cf222e; stroke-width:2; marker-end:url(#ar); }
+      .label { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:12px; fill:#24292f; text-anchor:middle; }
+      .tag { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:9px; fill:#656d76; }
+    </style>
+    <marker id="a" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8590a0"/>
+    </marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#cf222e"/>
+    </marker>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#00000012"/>
+    </filter>
+  </defs>
+
+  <text x="300" y="25" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="16" font-weight="700" fill="#24292f" text-anchor="middle">Audit &amp; Recovery</text>
+
+  <!-- Execution -->
+  <rect x="220" y="50" width="160" height="36" class="exec" filter="url(#shadow)"/>
+  <text x="300" y="73" class="label">Execution</text>
+  <line x1="300" y1="86" x2="300" y2="110" class="arrow"/>
+
+  <!-- Audit Log -->
+  <rect x="220" y="110" width="160" height="36" class="audit" filter="url(#shadow)"/>
+  <text x="300" y="133" class="label">Audit Log (Append)</text>
+  <line x1="300" y1="146" x2="300" y2="170" class="arrow"/>
+
+  <!-- Crash -->
+  <rect x="240" y="170" width="120" height="36" class="crash" filter="url(#shadow)"/>
+  <text x="300" y="193" class="label">Crash ✗</text>
+  <line x1="300" y1="206" x2="300" y2="230" class="arrow"/>
+
+  <!-- Recovery Engine -->
+  <rect x="200" y="230" width="200" height="36" class="recovery" filter="url(#shadow)"/>
+  <text x="300" y="253" class="label">Recovery Engine</text>
+  <line x1="300" y1="266" x2="300" y2="290" class="arrow"/>
+
+  <!-- Decision Tree -->
+  <polygon points="300,291 380,320 300,349 220,320" class="decision" filter="url(#shadow)"/>
+  <text x="300" y="323" class="label">Decision Tree</text>
+
+  <!-- Three outcome paths -->
+  <!-- Rollback -->
+  <path d="M 220 320 L 60 320 L 60 390 L 100 390" class="arrow-r"/>
+  <text x="140" y="315" class="tag" fill="#cf222e" font-weight="600">Rollback</text>
+  <rect x="40" y="390" width="150" height="36" class="rollback" filter="url(#shadow)"/>
+  <text x="115" y="414" class="label">Rollback State</text>
+
+  <!-- Compensation -->
+  <path d="M 300 349 L 300 390" class="arrow"/>
+  <rect x="230" y="390" width="140" height="36" class="comp" filter="url(#shadow)"/>
+  <text x="300" y="414" class="label">Compensate</text>
+
+  <!-- Replay -->
+  <path d="M 380 320 L 540 320 L 540 390 L 500 390" class="arrow"/>
+  <text x="460" y="315" class="tag" fill="#5484e0" font-weight="600">Replay</text>
+  <rect x="410" y="390" width="150" height="36" class="replay" filter="url(#shadow)"/>
+  <text x="485" y="414" class="label">Replay Actions</text>
+
+  <!-- All three converge -->
+  <path d="M 115 426 L 115 470 L 300 470" class="arrow"/>
+  <path d="M 300 426 L 300 470" class="arrow"/>
+  <path d="M 485 426 L 485 470 L 300 470" class="arrow"/>
+
+  <!-- Recovery Complete -->
+  <rect x="220" y="470" width="160" height="36" class="outcome" filter="url(#shadow)"/>
+  <text x="300" y="493" class="label">Recovery Complete ✓</text>
+
+  <!-- Note -->
+  <text x="300" y="550" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="10" fill="#656d76" text-anchor="middle">Audit log entries are daily-split append-only. Recovery reads last-committed state.</text>
+  <text x="300" y="565" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="10" fill="#656d76" text-anchor="middle">Decision tree selects rollback, compensation, or replay based on action determinism class.</text>
+</svg>

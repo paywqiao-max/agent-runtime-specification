@@ -194,6 +194,22 @@ The architecture contains **no circular dependencies**.
 
 Every contract promise terminates at a contract-guaranteed artifact.
 
+![Architecture Overview](assets/architecture-overview.svg)
+
+*Layer dependency: upper layers depend only on lower-layer contracts. Arrows show dependency direction.*
+
+---
+
+## Diagrams
+
+| Diagram | Description |
+|---------|-------------|
+| ![Workflow Runtime](assets/workflow-runtime.svg) | **Workflow Runtime** — DAG execution model: Start → Action → Condition (True/False) → Skill/Error → Terminal |
+| ![Execution Lifecycle](assets/execution-lifecycle.svg) | **Execution Lifecycle** — Pending → Execute → Commit phases → Committed, with failure/recovery transitions |
+| ![Audit & Recovery](assets/audit-recovery.svg) | **Audit & Recovery** — Append-only audit log with crash recovery via decision tree (Rollback / Compensation / Replay) |
+| ![Verification Pipeline](assets/verification-pipeline.svg) | **Verification Pipeline** — Static Analysis → Contract Validation → Safety Classification → Governance Gate → Execution |
+| ![Governance Gate](assets/governance-gate.svg) | **Governance Gate** — Agent Identity → Permission → Policy → Verification Result → Allow / Deny |
+
 ---
 
 # Repository Layout

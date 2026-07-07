@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 520" width="500" height="520">
+  <defs>
+    <style>
+      .identity { fill:#e8f0fe; stroke:#5484e0; stroke-width:2; rx:8; ry:8; }
+      .perm { fill:#ddf4ff; stroke:#54aeff; stroke-width:2; rx:8; ry:8; }
+      .policy { fill:#fff8c5; stroke:#d4a72c; stroke-width:2; rx:8; ry:8; }
+      .verify { fill:#f6f8fa; stroke:#d0d7de; stroke-width:2; rx:8; ry:8; }
+      .allowed { fill:#e6f6e6; stroke:#3fb950; stroke-width:2; rx:8; ry:8; }
+      .denied { fill:#ffe0e0; stroke:#cf222e; stroke-width:2; rx:8; ry:8; }
+      .gate-box { fill:#fff; stroke:#d0d7de; stroke-width:2; rx:10; ry:10; stroke-dasharray:6,4; }
+      .arrow { fill:none; stroke:#8590a0; stroke-width:2; marker-end:url(#a); }
+      .arrow-g { fill:none; stroke:#3fb950; stroke-width:2; marker-end:url(#ag); }
+      .arrow-r { fill:none; stroke:#cf222e; stroke-width:2; marker-end:url(#ar); }
+      .label { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:12px; fill:#24292f; text-anchor:middle; }
+      .tag { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:9px; fill:#656d76; }
+    </style>
+    <marker id="a" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8590a0"/>
+    </marker>
+    <marker id="ag" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3fb950"/>
+    </marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#cf222e"/>
+    </marker>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#00000012"/>
+    </filter>
+  </defs>
+
+  <text x="250" y="25" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="16" font-weight="700" fill="#24292f" text-anchor="middle">Governance Gate</text>
+
+  <!-- Agent Identity -->
+  <rect x="170" y="50" width="160" height="36" class="identity" filter="url(#shadow)"/>
+  <text x="250" y="73" class="label">Agent Identity</text>
+  <line x1="250" y1="86" x2="250" y2="110" class="arrow"/>
+
+  <!-- Permission -->
+  <rect x="180" y="110" width="140" height="36" class="perm" filter="url(#shadow)"/>
+  <text x="250" y="133" class="label">Permission Check</text>
+  <line x1="250" y1="146" x2="250" y2="170" class="arrow"/>
+
+  <!-- Policy -->
+  <rect x="190" y="170" width="120" height="36" class="policy" filter="url(#shadow)"/>
+  <text x="250" y="193" class="label">Policy</text>
+  <line x1="250" y1="206" x2="250" y2="230" class="arrow"/>
+
+  <!-- Verification Result -->
+  <rect x="170" y="230" width="160" height="36" class="verify" filter="url(#shadow)"/>
+  <text x="250" y="253" class="label">Verification Result</text>
+  <line x1="250" y1="266" x2="250" y2="290" class="arrow"/>
+
+  <!-- Decision diamond -->
+  <polygon points="250,291 310,320 250,349 190,320" class="policy" filter="url(#shadow)"/>
+  <text x="250" y="323" class="label">Gate</text>
+
+  <!-- Allowed -->
+  <path d="M 190 320 L 80 320 L 80 390 L 120 390" class="arrow-g"/>
+  <text x="135" y="315" class="tag" fill="#3fb950" font-weight="600">Allow</text>
+  <rect x="50" y="390" width="140" height="36" class="allowed" filter="url(#shadow)"/>
+  <text x="120" y="413" class="label">Execution Allowed ✓</text>
+
+  <!-- Denied -->
+  <path d="M 310 320 L 420 320 L 420 390 L 380 390" class="arrow-r"/>
+  <text x="365" y="315" class="tag" fill="#cf222e" font-weight="600">Deny</text>
+  <rect x="310" y="390" width="140" height="36" class="denied" filter="url(#shadow)"/>
+  <text x="380" y="413" class="label">Execution Denied ✗</text>
+
+  <!-- Bottom notes -->
+  <text x="250" y="465" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="10" fill="#656d76" text-anchor="middle">The Governance Gate enforces policy-based execution gating.</text>
+  <text x="250" y="480" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="10" fill="#656d76" text-anchor="middle">All four checks must pass for Allow. Any failure → Denied.</text>
+</svg>

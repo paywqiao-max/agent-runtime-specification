@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" width="800" height="900">
+  <defs>
+    <style>
+      .box { fill: #f6f8fa; stroke: #d0d7de; stroke-width: 2; rx: 8; ry: 8; }
+      .layer { fill: #e8f0fe; stroke: #5484e0; stroke-width: 2; rx: 8; ry: 8; }
+      .arrow { fill: none; stroke: #8590a0; stroke-width: 2; marker-end: url(#arrowhead); }
+      .arrow-blue { fill: none; stroke: #5484e0; stroke-width: 2; marker-end: url(#arrowhead-blue); }
+      .label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; fill: #24292f; text-anchor: middle; }
+      .label-sm { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; fill: #656d76; text-anchor: middle; }
+      .label-layer { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; fill: #0969da; text-anchor: middle; font-weight: 600; }
+      .prin { fill: #ddf4ff; stroke: #54aeff; stroke-width: 2; rx: 6; ry: 6; }
+      .arrow-double { fill: none; stroke: #8590a0; stroke-width: 2; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8590a0" />
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#5484e0" />
+    </marker>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#00000012" />
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#24292f" text-anchor="middle">ARS Architecture Overview</text>
+  <text x="400" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#656d76" text-anchor="middle">Layer Dependency: upper layers depend only on lower-layer contracts</text>
+
+  <!-- Ch9: Meta-Governance -->
+  <rect x="100" y="790" width="600" height="44" class="layer" filter="url(#shadow)"/>
+  <text x="400" y="812" class="label-layer">Ch9: Meta-Governance</text>
+  <text x="400" y="825" class="label-sm">Policy system, execution gate, agent identity</text>
+
+  <!-- Arrow from Verification to Meta-Governance -->
+  <path d="M 400 782 L 400 790" class="arrow"/>
+
+  <!-- Ch8: Verification & Security -->
+  <rect x="100" y="690" width="600" height="44" class="layer" filter="url(#shadow)"/>
+  <text x="400" y="712" class="label-layer">Ch8: Verification &amp; Security</text>
+  <text x="400" y="725" class="label-sm">Static analysis (S1–S17), safety classification</text>
+
+  <!-- Arrow from Workflow to Verification -->
+  <path d="M 400 682 L 400 690" class="arrow"/>
+
+  <!-- Ch7: Workflow Layer -->
+  <rect x="100" y="590" width="600" height="44" class="layer" filter="url(#shadow)"/>
+  <text x="400" y="612" class="label-layer">Ch7: Workflow Runtime</text>
+  <text x="400" y="625" class="label-sm">DAG orchestration, node types, control flow</text>
+
+  <!-- Arrows from Execution Contract and Audit to Workflow -->
+  <path d="M 300 562 L 300 590" class="arrow"/>
+  <path d="M 500 562 L 500 590" class="arrow"/>
+
+  <!-- Ch5: Execution Contract + Ch6: Audit & Recovery (side by side) -->
+  <rect x="100" y="490" width="280" height="42" class="layer" filter="url(#shadow)"/>
+  <text x="240" y="512" class="label-layer">Ch5: Execution Contract</text>
+  <text x="240" y="525" class="label-sm">Action lifecycle, pre/post conditions</text>
+
+  <rect x="420" y="490" width="280" height="42" class="layer" filter="url(#shadow)"/>
+  <text x="560" y="512" class="label-layer">Ch6: Audit &amp; Recovery</text>
+  <text x="560" y="525" class="label-sm">Append-only audit, crash recovery</text>
+
+  <!-- Bidirectional arrow between Ch5 and Ch6 -->
+  <line x1="385" y1="511" x2="415" y2="511" class="arrow-double"/>
+  <polygon points="415 507, 425 511, 415 515" fill="#8590a0" />
+  <polygon points="385 507, 375 511, 385 515" fill="#8590a0" />
+
+  <!-- Arrow from State to Contract+Audit -->
+  <path d="M 240 472 L 240 490" class="arrow"/>
+  <path d="M 560 472 L 560 490" class="arrow"/>
+
+  <!-- Ch4: State Management -->
+  <rect x="100" y="400" width="600" height="42" class="layer" filter="url(#shadow)"/>
+  <text x="400" y="422" class="label-layer">Ch4: State Management</text>
+  <text x="400" y="435" class="label-sm">File-based single source of truth</text>
+
+  <!-- Arrow from Filesystem to State -->
+  <path d="M 400 392 L 400 400" class="arrow"/>
+
+  <!-- Ch3: Filesystem Layout -->
+  <rect x="100" y="310" width="600" height="42" class="layer" filter="url(#shadow)"/>
+  <text x="400" y="332" class="label-layer">Ch3: Filesystem Layout</text>
+  <text x="400" y="345" class="label-sm">Generic workspace directory structure</text>
+
+  <!-- Arrow from Component to Filesystem -->
+  <path d="M 400 302 L 400 310" class="arrow"/>
+
+  <!-- Ch2: Component Model -->
+  <rect x="100" y="220" width="600" height="42" class="layer" filter="url(#shadow)"/>
+  <text x="400" y="242" class="label-layer">Ch2: Component Model</text>
+  <text x="400" y="255" class="label-sm">14 components, 6 layers, interfaces</text>
+
+  <!-- Arrow from Principles to Component -->
+  <path d="M 400 212 L 400 220" class="arrow"/>
+
+  <!-- Ch1: Principles -->
+  <rect x="100" y="130" width="600" height="42" class="prin" filter="url(#shadow)"/>
+  <text x="400" y="152" class="label-layer">Ch1: Principles — P0–P5 Foundational Axioms</text>
+  <text x="400" y="165" class="label-sm">Evidence First · Auditability · Idempotency · Minimal Components · Portability · Dry-Run First</text>
+
+  <!-- Bottom note -->
+  <text x="400" y="870" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#656d76" text-anchor="middle">Upper layers (Ch7–9) depend on lower-layer contracts (Ch1–6). Arrows show dependency direction: upper → lower.</text>
+</svg>

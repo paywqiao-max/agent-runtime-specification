@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" width="600" height="520">
+  <defs>
+    <style>
+      .state { fill:#f6f8fa; stroke:#d0d7de; stroke-width:2; rx:8; ry:8; }
+      .active { fill:#e8f0fe; stroke:#5484e0; stroke-width:2; rx:8; ry:8; }
+      .commit { fill:#ddf4ff; stroke:#54aeff; stroke-width:2; rx:8; ry:8; }
+      .terminal { fill:#e6f6e6; stroke:#3fb950; stroke-width:2; rx:8; ry:8; }
+      .fail { fill:#ffe0e0; stroke:#cf222e; stroke-width:2; rx:8; ry:8; }
+      .arrow { fill:none; stroke:#8590a0; stroke-width:2; marker-end:url(#a); }
+      .fail-arrow { fill:none; stroke:#cf222e; stroke-width:2; marker-end:url(#ar); stroke-dasharray:5,3; }
+      .label { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:12px; fill:#24292f; text-anchor:middle; }
+      .tag { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:9px; fill:#656d76; }
+    </style>
+    <marker id="a" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8590a0"/>
+    </marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#cf222e"/>
+    </marker>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#00000012"/>
+    </filter>
+  </defs>
+
+  <text x="300" y="25" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="16" font-weight="700" fill="#24292f" text-anchor="middle">Execution Lifecycle</text>
+
+  <!-- Pending -->
+  <rect x="230" y="50" width="140" height="36" class="state" filter="url(#shadow)"/>
+  <text x="300" y="73" class="label">Pending</text>
+  <line x1="300" y1="86" x2="300" y2="110" class="arrow"/>
+
+  <!-- Execute -->
+  <rect x="230" y="110" width="140" height="36" class="active" filter="url(#shadow)"/>
+  <text x="300" y="133" class="label">Execute</text>
+  <line x1="300" y1="146" x2="300" y2="170" class="arrow"/>
+
+  <!-- Commit Begin -->
+  <rect x="210" y="170" width="180" height="36" class="commit" filter="url(#shadow)"/>
+  <text x="300" y="193" class="label">Commit Begin</text>
+  <line x1="300" y1="206" x2="300" y2="230" class="arrow"/>
+
+  <!-- State Apply -->
+  <rect x="210" y="230" width="180" height="36" class="commit" filter="url(#shadow)"/>
+  <text x="300" y="253" class="label">State Apply</text>
+  <line x1="300" y1="266" x2="300" y2="290" class="arrow"/>
+
+  <!-- Commit Finalize -->
+  <rect x="210" y="290" width="180" height="36" class="commit" filter="url(#shadow)"/>
+  <text x="300" y="313" class="label">Commit Finalize</text>
+  <line x1="300" y1="326" x2="300" y2="350" class="arrow"/>
+
+  <!-- Committed -->
+  <rect x="230" y="350" width="140" height="36" class="terminal" filter="url(#shadow)"/>
+  <text x="300" y="373" class="label">Committed ✓</text>
+
+  <!-- Failure transitions -->
+  <path d="M 210 128 L 60 128 L 60 430 L 220 430" class="fail-arrow"/>
+  <text x="60" y="122" class="tag" fill="#cf222e" font-weight="600">Failure</text>
+
+  <!-- Failed state -->
+  <rect x="30" y="410" width="140" height="36" class="fail" filter="url(#shadow)"/>
+  <text x="100" y="433" class="label">Failed ✗</text>
+
+  <!-- Recovery arrow from Failed -->
+  <line x1="170" y1="428" x2="220" y2="428" class="arrow"/>
+  <text x="200" y="442" class="tag" fill="#5484e0" font-weight="600">Recovery</text>
+
+  <!-- Retry arrow from Failed back to Execute -->
+  <path d="M 100 410 L 100 60 L 220 60" class="fail-arrow"/>
+  <text x="100" y="55" class="tag" fill="#cf222e" font-weight="600">Retry</text>
+
+  <!-- Legend -->
+  <text x="400" y="65" class="tag" font-weight="600">Legend:</text>
+  <rect x="400" y="73" width="10" height="10" class="state"/>
+  <text x="415" y="82" class="tag">Queued</text>
+  <rect x="460" y="73" width="10" height="10" class="active"/>
+  <text x="475" y="82" class="tag">Executing</text>
+  <rect x="400" y="93" width="10" height="10" class="commit"/>
+  <text x="415" y="102" class="tag">Commit phase</text>
+  <rect x="460" y="93" width="10" height="10" class="terminal"/>
+  <text x="475" y="102" class="tag">Success</text>
+  <rect x="400" y="113" width="10" height="10" class="fail"/>
+  <text x="415" y="122" class="tag">Failure</text>
+</svg>

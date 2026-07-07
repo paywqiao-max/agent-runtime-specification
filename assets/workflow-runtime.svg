@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 620" width="500" height="620">
+  <defs>
+    <style>
+      .start { fill:#ddf4ff; stroke:#54aeff; stroke-width:2; rx:20; ry:20; }
+      .action { fill:#e8f0fe; stroke:#5484e0; stroke-width:2; rx:8; ry:8; }
+      .cond { fill:#fff8c5; stroke:#d4a72c; stroke-width:2; rx:4; ry:4; }
+      .skill { fill:#e6f6e6; stroke:#3fb950; stroke-width:2; rx:8; ry:8; }
+      .error { fill:#ffe0e0; stroke:#cf222e; stroke-width:2; rx:8; ry:8; }
+      .term { fill:#f6f8fa; stroke:#656d76; stroke-width:2; rx:8; ry:8; }
+      .arrow { fill:none; stroke:#8590a0; stroke-width:2; marker-end:url(#a); }
+      .arrow-true { fill:none; stroke:#3fb950; stroke-width:2; marker-end:url(#ag); }
+      .arrow-false { fill:none; stroke:#cf222e; stroke-width:2; marker-end:url(#ar); }
+      .label { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:12px; fill:#24292f; text-anchor:middle; }
+      .label-sm { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:10px; fill:#656d76; text-anchor:middle; }
+      .tag { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:9px; fill:#656d76; }
+    </style>
+    <marker id="a" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8590a0"/>
+    </marker>
+    <marker id="ag" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3fb950"/>
+    </marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#cf222e"/>
+    </marker>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#00000012"/>
+    </filter>
+  </defs>
+
+  <text x="250" y="25" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="16" font-weight="700" fill="#24292f" text-anchor="middle">Workflow Runtime — DAG Execution Model</text>
+
+  <!-- Start -->
+  <rect x="190" y="45" width="120" height="36" class="start" filter="url(#shadow)"/>
+  <text x="250" y="68" class="label">Start</text>
+  <line x1="250" y1="81" x2="250" y2="104" class="arrow"/>
+
+  <!-- Action -->
+  <rect x="180" y="105" width="140" height="36" class="action" filter="url(#shadow)"/>
+  <text x="250" y="128" class="label">Action Node</text>
+  <line x1="250" y1="141" x2="250" y2="164" class="arrow"/>
+
+  <!-- Condition -->
+  <polygon points="250,165 310,200 250,235 190,200" class="cond" filter="url(#shadow)"/>
+  <text x="250" y="203" class="label">Condition</text>
+
+  <!-- True branch -->
+  <path d="M 310 200 L 380 200 L 380 280 L 310 280" class="arrow-true"/>
+  <text x="345" y="195" class="tag" fill="#3fb950" font-weight="600">True</text>
+
+  <!-- False branch -->
+  <path d="M 190 200 L 120 200 L 120 280 L 180 280" class="arrow-false"/>
+  <text x="155" y="195" class="tag" fill="#cf222e" font-weight="600">False</text>
+
+  <!-- Skill node -->
+  <rect x="180" y="280" width="140" height="36" class="skill" filter="url(#shadow)"/>
+  <text x="250" y="303" class="label">Skill Node</text>
+  <line x1="250" y1="316" x2="250" y2="340" class="arrow"/>
+
+  <!-- Error node -->
+  <rect x="180" y="340" width="140" height="36" class="error" filter="url(#shadow)"/>
+  <text x="250" y="364" class="label">Error Node</text>
+  <line x1="250" y1="377" x2="250" y2="400" class="arrow"/>
+
+  <!-- Terminal -->
+  <rect x="180" y="400" width="140" height="36" class="term" filter="url(#shadow)"/>
+  <text x="250" y="424" class="label">Terminal Node</text>
+
+  <!-- DAG semantics note -->
+  <text x="250" y="490" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="10" fill="#656d76" text-anchor="middle">DAG semantics: nodes execute in topological order.</text>
+  <text x="250" y="505" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="10" fill="#656d76" text-anchor="middle">Condition node branches: True → Skill, False → Error.</text>
+  <text x="250" y="520" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="10" fill="#656d76" text-anchor="middle">All paths terminate at a Terminal node.</text>
+
+  <!-- Legend -->
+  <rect x="100" y="545" width="12" height="12" class="start"/>
+  <text x="117" y="555" class="tag">Start</text>
+  <rect x="155" y="545" width="12" height="12" class="action"/>
+  <text x="172" y="555" class="tag">Action</text>
+  <polygon points="215,545 225,551 215,557 205,551" class="cond"/>
+  <text x="230" y="555" class="tag">Condition</text>
+  <rect x="300" y="545" width="12" height="12" class="skill"/>
+  <text x="317" y="555" class="tag">Skill</text>
+  <rect x="350" y="545" width="12" height="12" class="error"/>
+  <text x="367" y="555" class="tag">Error</text>
+  <rect x="395" y="545" width="12" height="12" class="term"/>
+  <text x="412" y="555" class="tag">Terminal</text>
+</svg>
